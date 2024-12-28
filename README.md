@@ -1,6 +1,8 @@
 # Return of NODERA.TV
 
-本プロジェクトは、**turborepo + Yarn Berry** を使ったモノレポ構成です。  
+本プロジェクトは、[Yuji Nodera](https://github.com/yujinodera) 氏の歴史的プロダクトである **NODERA.TV** を2020年代の技術スタックでリプロダクトを試みる、オマージュプロジェクトです。
+
+構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成です。  
 フロントエンドとバックエンドをワークスペースとしてまとめ、低コスト運用で最大16名までのP2Pライブ配信を実現します。
 
 ---
