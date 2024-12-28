@@ -1,0 +1,26 @@
+
+[2mEnvironment variables loaded from .env[22m
+[2mPrisma schema loaded from prisma/schema.prisma[22m
+
+✔ Generated [1mPrisma Client[22m (v6.1.0)[2m to ./../../node_modules/@prisma/client[22m in 179ms
+
+✔ Generated [1mTypeGraphQL integration[22m[2m to ./prisma/generated/type-graphql[22m in 4.87s
+
+Start by importing your Prisma Client (See: https://pris.ly/d/importing-client)
+
+Help us improve the Prisma ORM for everyone. Share your feedback in a short 2-min survey: https://pris.ly/orm/survey/release-5-22
+
+
+[33m[1mwarn[22m[39m Versions of [1mprisma@5.22.0[22m and [1m@prisma/client@6.1.0[22m don't match.
+This might lead to unexpected behavior.
+Please make sure they have the same version.
+[31m[90m[90m┌─[39m[90m[90m────────────────────────────────────────────────────────┐[39m[90m
+[90m│[39m[90m  [0m[34mUpdate available[39m[90m 5.22.0 -> 6.1.0[0m                       [90m│[39m[90m
+[90m│[39m[90m  [0m[0m                                                       [90m│[39m[90m
+[90m│[39m[90m  [0mThis is a major update - please follow the guide at[0m    [90m│[39m[90m
+[90m│[39m[90m  [0mhttps://pris.ly/d/major-version-upgrade[0m                [90m│[39m[90m
+[90m│[39m[90m  [0m[0m                                                       [90m│[39m[90m
+[90m│[39m[90m  [0mRun the following to update[0m                            [90m│[39m[90m
+[90m│[39m[90m  [0m  [1myarn add --dev prisma@latest[22m[0m                         [90m│[39m[90m
+[90m│[39m[90m  [0m  [1myarn add @prisma/client@latest[22m[0m                       [90m│[39m[90m
+└─────────────────────────────────────────────────────────┘[39m[39m
