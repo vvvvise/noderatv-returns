@@ -80,30 +80,27 @@
 
 ### フロントエンド
 
-1. **React.js**  
+1. **[React.js](https://ja.react.dev/)**  
    Facebook製のUIライブラリ。コンポーネント単位でUIを設計し、大規模化にも強い。
 
-2. **WebRTC API**  
+2. **[WebRTC API](https://webrtc.org/?hl=ja)**  
    ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする。
 
-3. **socket.io-client**  
+3. **[socket.io-client](https://socket.io/docs/)**  
    WebSocketをイベント駆動で扱いやすくするライブラリ。自動再接続などが強力。
-
-4. **Tailwind CSS**  
-   ユーティリティクラスベースのCSSフレームワーク。素早いUI構築をサポート。
 
 ### バックエンド
 
-1. **Node.js + Fastify**  
+1. **Node.js + [Fastify](https://fastify.dev/)**  
    サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク。
 
-2. **socket.io**  
+2. **[socket.io](https://socket.io/docs/)**  
    WebSocketでのリアルタイム通信を簡単に実装できるライブラリ。
 
-3. **Passport.js (Twitter OAuth 2.0)**  
+3. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
    多数のSNS・サービス連携に対応した認証ライブラリ。Twitter認証もシンプルに実装可能。
 
-4. **Coturn**  
+4. **[Coturn](https://github.com/coturn/coturn)**  
    WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ。t2.micro程度で十分運用可能。
 
 ---
@@ -149,4 +146,4 @@
 ## 今後の予定
 - 同時接続数のテストと負荷測定  
 - Twitter以外のOAuth対応 (Google, GitHub等)  
-- UIデザイン刷新 (Tailwind CSSのカスタマイズ強化)
+- UIデザイン刷新
