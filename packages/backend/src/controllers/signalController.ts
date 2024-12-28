@@ -2,7 +2,7 @@ import { FastifyRequest, FastifyReply } from 'fastify';
 
 export async function signalingHandler(
   req: FastifyRequest,
-  reply: FastifyReply,
+  reply: FastifyReply
 ) {
   const signalData: any = req.body || {};
   // WebRTCのoffer/answer/ICEをクライアント間でやりとりする場合は、
