@@ -3,13 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "app": "yarn workspace @return-of-noderatv/frontend",
+    "server": "yarn workspace @return-of-noderatv/backend",
     "dev": "turbo dev",
+    "dev:app": "turbo dev --scope=@return-of-noderatv/frontend",
+    "dev:server": "turbo dev --scope=@return-of-noderatv/backend",
     "build": "turbo build",
+    "build:app": "turbo build --scope=@return-of-noderatv/frontend",
+    "build:server": "turbo build --scope=@return-of-noderatv/backend",
     "lint": "turbo lint",
     "format": "prettier --write .",
-    "clean": "turbo run clean",
-    "frontend:dev": "turbo dev --scope=@return-of-noderatv/frontend",
-    "backend:dev": "turbo dev --scope=@return-of-noderatv/backend"
+    "typecheck": "turbo typecheck",
+    "clean": "turbo run clean"
   },
   "workspaces": {
     "packages": [
@@ -17,14 +22,18 @@
     ]
   },
   "dependencies": {
-    "@return-of-noderatv/backend": "*",
-    "@return-of-noderatv/frontend": "*"
+    "@return-of-noderatv/backend": "workspace:*",
+    "@return-of-noderatv/frontend": "workspace:*"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
+    "@types/node": "^22.10.2",
     "@typescript-eslint/eslint-plugin": "^8.18.2",
     "@typescript-eslint/parser": "^8.18.2",
-    "eslint": "^8.5.0",
+    "@typescript-eslint/typescript-estree": "^8.18.2",
+    "@typescript-eslint/utils": "^8.18.2",
+    "esbuild": "^0.24.2",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.3",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",

@@ -1,10 +1,10 @@
-import { FastifyRequest, FastifyReply } from 'fastify';
+import { FastifyReply, FastifyRequest } from 'fastify';
 
 export async function signalingHandler(
   req: FastifyRequest,
   reply: FastifyReply
 ) {
-  const signalData: any = req.body || {};
+  const signalData: unknown = req.body || {};
   // WebRTCのoffer/answer/ICEをクライアント間でやりとりする場合は、
   // ここで他のクライアントへ転送するなど
   reply.send({ status: 'ok', signalData });
