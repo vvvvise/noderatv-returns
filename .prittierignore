@@ -1,0 +1,17 @@
+# Build outputs
+dist/
+build/
+.next/
+out/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.generated.*
+coverage/
+
+# Specific package directories that shouldn't be formatted
+packages/api-client/src/
+packages/storybook-server/lib/
+packages/storybook-server/storybook-static/
