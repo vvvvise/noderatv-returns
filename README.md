@@ -129,10 +129,30 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    cd nodera-tv-monorepo
    ```
 
-2. **Yarn Berry を使って依存関係をインストール**
+2. nodenvのインストール<br />
+   https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
 
    ```bash
-   yarn install
+   # installの確認
+   $ nodenv -v
+   nodenv 1.5.0
+   ```
+
+4. nodeのインストール
+   ```bash
+   # shellを再起動
+   $ exec $SHELL -l
+
+   $ nodenv install 20.18.0
+   $ nodenv rehash
+   $ node -v
+   v20.18.0
+   ```
+
+2. **Yarn Berry で Workspaces を構築**
+
+   ```bash
+   $ sh ./scripts/setup.sh
    ```
 
 3. **開発用サーバを起動**  
