@@ -1,5 +1,7 @@
 # Return of NODERA.TV
 
+![388638_10150439395048744_1843696140_n](https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef)
+
 本プロジェクトは、[Yuji Nodera](https://github.com/yujinodera) 氏の歴史的プロダクトである **NODERA.TV** を2020年代の技術スタックでリプロダクトを試みる、オマージュプロジェクトです。
 
 構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成です。  
