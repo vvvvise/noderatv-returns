@@ -7,20 +7,24 @@
     "build": "turbo build",
     "lint": "turbo lint",
     "format": "prettier --write .",
+    "clean": "turbo run clean",
     "frontend:dev": "turbo dev --scope=@return-of-noderatv/frontend",
     "backend:dev": "turbo dev --scope=@return-of-noderatv/backend"
   },
-  "workspaces": [
-    "packages/frontend",
-    "packages/backend"
-  ],
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
   "dependencies": {
     "@return-of-noderatv/backend": "*",
     "@return-of-noderatv/frontend": "*"
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "eslint": "^9.17.0",
+    "@typescript-eslint/eslint-plugin": "^8.18.2",
+    "@typescript-eslint/parser": "^8.18.2",
+    "eslint": "^8.5.0",
     "eslint-plugin-react": "^7.37.3",
     "globals": "^15.14.0",
     "prettier": "^3.4.2",
