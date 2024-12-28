@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { io, Socket } from 'socket.io-client';
+import io, { Socket } from 'socket.io-client';
 
-let socket: Socket;
+let socket: typeof Socket;
 
 const ChatBox: React.FC = () => {
   const [messages, setMessages] = useState<string[]>([]);
