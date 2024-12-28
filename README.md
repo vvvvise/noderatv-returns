@@ -133,7 +133,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
 
    ```bash
-   # shellを再起動
+   # nodenvのインストール後にshellを再起動
    $ exec $SHELL -l
 
    # installの確認
