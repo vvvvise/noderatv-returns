@@ -1,19 +1,32 @@
 {
-  "name": "nodera-tv-monorepo",
+  "name": "@return-of-noderatv/repo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "turbo dev",
     "build": "turbo build",
     "lint": "turbo lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "frontend:dev": "turbo dev --scope=@return-of-noderatv/frontend",
+    "backend:dev": "turbo dev --scope=@return-of-noderatv/backend"
   },
   "workspaces": [
-    "packages/*"
+    "packages/frontend",
+    "packages/backend"
   ],
+  "dependencies": {
+    "@return-of-noderatv/backend": "*",
+    "@return-of-noderatv/frontend": "*"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react": "^7.37.3",
+    "globals": "^15.14.0",
     "prettier": "^3.4.2",
-    "turbo": "latest"
+    "turbo": "^2.3.3",
+    "typescript": "^5.7.2",
+    "typescript-eslint": "^8.18.2"
   },
   "packageManager": "yarn@4.5.3+sha256.dddc0b96ad2dca8d56a5302b56bf3cbf8210654474a6bf88877da61e866f3d46"
 }
