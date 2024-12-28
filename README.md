@@ -44,7 +44,7 @@
 +-------------------+
 | TURN (Coturn)     |
 | Vercel / Fly.io   |
-| Redis (オプション)  |
+| Redis (Opyio)     |
 +-------------------+
 ```
 
