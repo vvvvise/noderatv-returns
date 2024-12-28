@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsc && node dist/server.js",
     "build": "tsc",
-    "lint": "eslint ."
+    "dev": "tsc -w",
+    "lint": "eslint src --ext .ts,.tsx",
+    "clean": "rm -rf dist"
   },
   "dependencies": {
     "fastify": "^4.29.0",
