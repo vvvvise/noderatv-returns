@@ -8,7 +8,7 @@ export async function twitterAuth(req: FastifyRequest, reply: FastifyReply) {
 
 export async function twitterCallback(
   req: FastifyRequest,
-  reply: FastifyReply,
+  reply: FastifyReply
 ) {
   // コールバック処理 (実際はPassportでtoken取得)
   reply.send({ message: 'Twitter Callback Success!' });
