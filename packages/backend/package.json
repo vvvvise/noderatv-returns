@@ -1,23 +1,24 @@
 {
-  "name": "nodera-tv-backend",
+  "name": "@return-of-noderatv/backend",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "tsc && node dist/server.js",
     "build": "tsc",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "fastify": "^4.20.2",
-    "passport": "^0.6.0",
+    "fastify": "^4.29.0",
+    "passport": "^0.7.0",
     "passport-twitter": "^1.0.4",
-    "socket.io": "^4.6.1"
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
-    "@types/node": "^20.4.7",
-    "@types/passport-twitter": "^1.0.1",
+    "@types/node": "^20.17.10",
+    "@types/passport": "^1.0.17",
+    "@types/passport-twitter": "^1.0.40",
     "@types/socket.io": "^3.0.2",
-    "eslint": "^8.46.0",
-    "typescript": "^5.1.6"
+    "eslint": "^8.57.1",
+    "typescript": "^5.7.2"
   }
 }
