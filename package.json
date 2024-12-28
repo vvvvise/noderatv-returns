@@ -1,0 +1,16 @@
+{
+    "name": "nodera-tv-monorepo",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "turbo dev",
+        "build": "turbo build",
+        "lint": "turbo lint"
+    },
+    "workspaces": [
+        "packages/*"
+    ],
+    "devDependencies": {
+        "turbo": "latest"
+    }
+}
