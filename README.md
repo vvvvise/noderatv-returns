@@ -1,11 +1,21 @@
-# Return of NODERA.TV
+### 　
 
-![388638_10150439395048744_1843696140_n](https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef)
+# _Return of **NODERA.TV**_
+> This is a tribute project that seeks to recreate the historic service NODERA.TV with a technology stack from the late 2020s.
+
+### 　
+### 　
 
 本プロジェクトは、[Yuji Nodera](https://github.com/yujinodera) 氏の歴史的プロダクトである **NODERA.TV** を2020年代の技術スタックでリプロダクトを試みる、オマージュプロジェクトです。
 
 構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成です。  
 フロントエンドとバックエンドをワークスペースとしてまとめ、低コスト運用で最大16名までのP2Pライブ配信を実現します。
+
+### 　
+
+![388638_10150439395048744_1843696140_n](https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef)
+
+### 　
 
 ---
 
