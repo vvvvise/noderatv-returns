@@ -1,27 +1,26 @@
 ### 　
+### 　
 
-# _Return of **NODERA.TV**_
+# 📺<br />_**N O D E R A .T V** ⌁ R e t u r n s ⌁_
 
 > This is a tribute project that seeks to recreate the historic service NODERA.TV with a technology stack from the late 2020s.
 
-### 　
+<img src="https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef" width="200">
 
 ### 　
-
-本プロジェクトは、[Yuji Nodera](https://github.com/yujinodera) 氏の歴史的プロダクトである **NODERA.TV** を2020年代の技術スタックでリプロダクトを試みる、オマージュプロジェクトです。
-
-構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。  
-フロントエンドとバックエンドをワークスペースとしてまとめ、低コスト運用で最大16名までのP2Pライブ配信を実現する想定です。
-
 ### 　
 
-![388638_10150439395048744_1843696140_n](https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef)
-
-### 　
+_**[Yuji Nodera](https://github.com/yujinodera)**_ 氏の歴史的プロダクト ⌁ _**NODERA.TV**_ ⌁<br /><br />
+本プロジェクトは このロストテクノロジーの傑作を、2020年代後期の技術スタックでリプロダクトを行います。<br />
+_**"そもそも可能性だけの世界だったインターネット"**_ を再現し _**"その地点から見えた未来と、社会の仮想化が行き渡った現在。この二つの視点の乖離"**_<br />
+これを可視化しようとする試みです。
 
 ---
 
-## 概要
+## OUTLINE
+
+構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。  
+フロントエンドとバックエンドをワークスペースPackageとして開発し、低コスト運用で最大16名までのP2Pライブ配信を実現する想定です。
 
 - **4x4分割で最大16コマのライブストリーム**をP2Pで配信
 - 画面右端に**リアルタイムチャット**を表示
@@ -33,7 +32,7 @@
 
 ---
 
-## アーキテクチャ
+## ARCHITECTURE
 
 ```plaintext
 +------------------+
@@ -71,7 +70,7 @@
 
 ---
 
-## ディレクトリ構成 (例)
+## DIRECTIVES
 
 ```
 .
@@ -92,9 +91,9 @@
 
 ---
 
-## 使用技術 (抜粋)
+## TECH-STACKS
 
-### フロントエンド
+### FRONTEND
 
 1. **[React.js](https://ja.react.dev/)**  
    Facebook製のUIライブラリ。コンポーネント単位でUIを設計し、大規模化にも強い。
@@ -105,7 +104,7 @@
 3. **[socket.io-client](https://socket.io/docs/)**  
    WebSocketをイベント駆動で扱いやすくするライブラリ。自動再接続などが強力。
 
-### バックエンド
+### BACKEND
 
 1. **Node.js + [Fastify](https://fastify.dev/)**  
    サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク。
@@ -121,7 +120,7 @@
 
 ---
 
-## セットアップ方法
+## SETUP
 
 1. **リポジトリをクローン**
 
@@ -159,13 +158,13 @@
 
 ---
 
-## ライセンス
+## LICENSE
 
-- TBD (会社やプロジェクト方針に応じて設定)
+- TBD (未定)
 
 ---
 
-## 今後の予定
+## FUTUREPLANS
 
 - 同時接続数のテストと負荷測定
 - Twitter以外のOAuth対応 (Google, GitHub等)
