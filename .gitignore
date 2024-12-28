@@ -17,3 +17,4 @@ packages/*/dist
 
 # turborepo
 .turbo/*
+packages/*/.turbo/*
