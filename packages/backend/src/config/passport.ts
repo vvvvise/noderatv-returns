@@ -11,8 +11,8 @@ passport.use(
     (token, tokenSecret, profile, done) => {
       // DB保存などの処理
       return done(null, profile);
-    },
-  ),
+    }
+  )
 );
 
 export default passport;
