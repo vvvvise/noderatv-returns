@@ -133,6 +133,9 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
 
    ```bash
+   # shellを再起動
+   $ exec $SHELL -l
+
    # installの確認
    $ nodenv -v
    nodenv 1.5.0
@@ -140,9 +143,6 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 4. nodeのインストール
    ```bash
-   # shellを再起動
-   $ exec $SHELL -l
-
    $ nodenv install 20.18.0
    $ nodenv rehash
    $ node -v
