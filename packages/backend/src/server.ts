@@ -1,6 +1,6 @@
 import Fastify from 'fastify';
-import { Server } from 'socket.io';
 import { createServer } from 'http';
+import { Server, Socket } from 'socket.io';
 import authRoutes from './routes/auth';
 import chatRoutes from './routes/chat';
 import signalRoutes from './routes/signal';
@@ -14,12 +14,12 @@ async function startServer() {
   fastify.register(signalRoutes, { prefix: '/signal' });
 
   // socket.ioとの連携（Fastifyをhttp.createServerで包む）
-  const httpServer = createServer(fastify as any);
+  const httpServer = createServer(fastify.server);
   const io = new Server(httpServer, {
     cors: { origin: '*' },
   });
 
-  io.on('connection', (socket) => {
+  io.on('connection', (socket: Socket) => {
     console.log('a user connected:', socket.id);
 
     socket.on('chatMessage', (msg: string) => {

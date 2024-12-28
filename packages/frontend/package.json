@@ -6,7 +6,8 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint src --ext .ts,.tsx",
-    "clean": "rm -rf dist"
+    "clean": "rm -rf dist",
+    "typecheck": "tsc --pretty --noEmit -p ./tsconfig.json"
   },
   "dependencies": {
     "react": "^18.3.1",
