@@ -25,7 +25,9 @@
 - 画面右端に**リアルタイムチャット**を表示  
 - **Twitter OAuth 2.0** で認証  
 - **低コスト運用**を狙い、無料枠を活用  
-- 同時接続数は **最大16名** に制限  
+- 同時接続数は **最大16名** に制限
+- 参考情報は [Wiki](https://github.com/vvvvise/return-of-noderatv/wiki) にまとめています、自由に追記してください
+- 開発に関する機能追加要望などは [Issue](https://github.com/vvvvise/return-of-noderatv/issues) に新規issueを立てて下さい
 
 ---
 
