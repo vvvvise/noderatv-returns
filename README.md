@@ -7,11 +7,11 @@
 
 ## 概要
 
-- **8x8分割で最大16コマのライブストリーム**をP2Pで配信  
-- 画面右端に**リアルタイムチャット**を表示  
-- **Twitter OAuth 2.0** で認証  
-- **低コスト運用**を狙い、無料枠を活用  
-- 同時接続数は **最大16名** に制限  
+- **8x8分割で最大16コマのライブストリーム**をP2Pで配信
+- 画面右端に**リアルタイムチャット**を表示
+- **Twitter OAuth 2.0** で認証
+- **低コスト運用**を狙い、無料枠を活用
+- 同時接続数は **最大16名** に制限
 
 ---
 
@@ -109,42 +109,49 @@
 ## セットアップ方法
 
 1. **リポジトリをクローン**
+
    ```bash
    git clone https://github.com/your-organization/nodera-tv-monorepo.git
    cd nodera-tv-monorepo
    ```
 
 2. **Yarn Berry を使って依存関係をインストール**
+
    ```bash
    yarn install
    ```
 
 3. **開発用サーバを起動**  
    Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します。
+
    ```bash
    yarn dev
    ```
+
    - フロントエンド: http://localhost:3001 (例)
-   - バックエンド: http://localhost:3000  (例)
+   - バックエンド: http://localhost:3000 (例)
 
 4. **ビルド**
+
    ```bash
    yarn build
    ```
 
-5. **デプロイ**  
-   - フロントエンドをVercelにデプロイ  
-   - バックエンドをFly.ioや任意の環境に配置  
+5. **デプロイ**
+   - フロントエンドをVercelにデプロイ
+   - バックエンドをFly.ioや任意の環境に配置
    - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）など
 
 ---
 
 ## ライセンス
+
 - TBD (会社やプロジェクト方針に応じて設定)
 
 ---
 
 ## 今後の予定
-- 同時接続数のテストと負荷測定  
-- Twitter以外のOAuth対応 (Google, GitHub等)  
+
+- 同時接続数のテストと負荷測定
+- Twitter以外のOAuth対応 (Google, GitHub等)
 - UIデザイン刷新 (Tailwind CSSのカスタマイズ強化)

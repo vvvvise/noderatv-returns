@@ -1,16 +1,19 @@
 {
-    "name": "nodera-tv-monorepo",
-    "version": "0.1.0",
-    "private": true,
-    "scripts": {
-        "dev": "turbo dev",
-        "build": "turbo build",
-        "lint": "turbo lint"
-    },
-    "workspaces": [
-        "packages/*"
-    ],
-    "devDependencies": {
-        "turbo": "latest"
-    }
+  "name": "nodera-tv-monorepo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "lint": "turbo lint",
+    "format": "prettier --write ."
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "prettier": "^3.4.2",
+    "turbo": "latest"
+  },
+  "packageManager": "yarn@4.5.3+sha256.dddc0b96ad2dca8d56a5302b56bf3cbf8210654474a6bf88877da61e866f3d46"
 }
