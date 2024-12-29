@@ -96,27 +96,27 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 ### FRONTEND
 
 1. **[React.js](https://ja.react.dev/)**  
-   Facebook製のUIライブラリ。コンポーネント単位でUIを設計し、大規模化にも強い。
+   Facebook製のUIライブラリ
 
 2. **[WebRTC API](https://webrtc.org/?hl=ja)**  
-   ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする。
+   ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする
 
 3. **[socket.io-client](https://socket.io/docs/)**  
-   WebSocketをイベント駆動で扱いやすくするライブラリ。自動再接続などが強力。
+   WebSocketをイベント駆動で扱いやすくするライブラリ
 
 ### BACKEND
 
 1. **Node.js + [Fastify](https://fastify.dev/)**  
-   サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク。
+   サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク
 
 2. **[socket.io](https://socket.io/docs/)**  
-   WebSocketでのリアルタイム通信を簡単に実装できるライブラリ。
+   WebSocketでのリアルタイム通信を簡単に実装できるライブラリ
 
-3. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
-   多数のSNS・サービス連携に対応した認証ライブラリ。Twitter認証もシンプルに実装可能。
+4. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
+   多数のSNS・サービス連携に対応した認証ライブラリ
 
-4. **[Coturn](https://github.com/coturn/coturn)**  
-   WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ。t2.micro程度で十分運用可能。
+5. **[Coturn](https://github.com/coturn/coturn)**  
+   WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ（t2.micro程度で十分運用可能と想定）
 
 ---
 
@@ -156,14 +156,15 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    ```
 
 3. **開発用サーバを起動**  
-   Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します。
+   Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します
 
    ```bash
    yarn dev
    ```
 
-   - フロントエンド: http://localhost:3001 (例)
-   - バックエンド: http://localhost:3000 (例)
+   - `.env` 導入してないのでとりあえず
+   - フロントエンド: http://localhost:3001
+   - バックエンド: http://localhost:3000
 
 4. **ビルド**
 
@@ -171,10 +172,10 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    yarn build
    ```
 
-5. **デプロイ**
-   - フロントエンドをVercelにデプロイ
-   - バックエンドをFly.ioや任意の環境に配置
-   - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）など
+5. **デプロイ（仮）**
+   - フロントエンドをVercel（仮）にデプロイ
+   - バックエンドをFly.io（仮）に配置
+   - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）
 
 ---
 
