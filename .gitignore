@@ -15,7 +15,7 @@ out
 .turbo
 
 # Environment
-.env*
+.env
 !.env.example
 
 # IDE
@@ -27,6 +27,7 @@ out
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+packages/frontend/doctor-storybook.log
 
 # System
 .DS_Store
