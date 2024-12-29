@@ -39,6 +39,9 @@ setup_yarn() {
     log "Setting Yarn version"
     yarn set version stable || return 1
 
+    yarn plugin import interactive-tools || return 1
+    yarn plugin import version || return 1
+
     log "Setting up dependencies"
     yarn unlink &> /dev/null || true  # Suppress output and don't fail if unlink fails
     yarn link && yarn install || return 1
