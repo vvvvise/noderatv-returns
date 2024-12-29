@@ -1,27 +1,26 @@
 ### 　
+### 　
 
-# _Return of **NODERA.TV**_
+# 　_⚡️_<br />📺<br />_**N O D E R A .T V** ⌁ R e t u r n s ⌁_
 
 > This is a tribute project that seeks to recreate the historic service NODERA.TV with a technology stack from the late 2020s.
 
-### 　
+<img src="https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef" width="200">
 
 ### 　
-
-本プロジェクトは、[Yuji Nodera](https://github.com/yujinodera) 氏の歴史的プロダクトである **NODERA.TV** を2020年代の技術スタックでリプロダクトを試みる、オマージュプロジェクトです。
-
-構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。  
-フロントエンドとバックエンドをワークスペースとしてまとめ、低コスト運用で最大16名までのP2Pライブ配信を実現する想定です。
-
 ### 　
 
-![388638_10150439395048744_1843696140_n](https://github.com/user-attachments/assets/8562305e-b8b2-496c-a98c-e091ad93caef)
-
-### 　
+_**[Yuji Nodera](https://github.com/yujinodera)**_ 氏の歴史的プロダクト ⌁ _**NODERA.TV**_ ⌁<br /><br />
+本プロジェクトは このロストテクノロジーの傑作を、2020年代後期の技術スタックでリプロダクトを行います。<br />
+_**"そもそも可能性だけの世界だったインターネット"**_ を再現し _**"ゼロ地点から見た未来と、社会の仮想化が行き渡った現在"、"この二つの視点から観測可能となる社会の地層"**_<br />
+これらを可視化しようとする試みです。
 
 ---
 
-## 概要
+## OUTLINE
+
+構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。  
+フロントエンドとバックエンドをワークスペースPackageとして開発し、低コスト運用で最大16名までのP2Pライブ配信を実現する想定です。
 
 - **4x4分割で最大16コマのライブストリーム**をP2Pで配信
 - 画面右端に**リアルタイムチャット**を表示
@@ -33,7 +32,7 @@
 
 ---
 
-## アーキテクチャ
+## ARCHITECTURE
 
 ```plaintext
 +------------------+
@@ -71,57 +70,67 @@
 
 ---
 
-## ディレクトリ構成 (例)
+## DIRECTIVES
 
 ```
 .
-├─ packages
-│   ├─ frontend
-│   │   ├─ src
-│   │   ├─ package.json
-│   │   └─ ...
-│   └─ backend
-│       ├─ src
-│       ├─ package.json
-│       └─ ...
-├─ .gitignore
-├─ package.json
-├─ turbo.json
-└─ README.md
+├── README.md
+├── apps/
+│   ├── client/
+│   ├── server/
+│   └── sinaptix/
+├── package.json
+├── packages/
+│   └── tests/
+├── scripts/
+├── tsconfig.json
+├── turbo.json
+└── yarn.lock
 ```
 
 ---
 
-## 使用技術 (抜粋)
+## TECH-STACKS
 
-### フロントエンド
+### CLIENT
 
 1. **[React.js](https://ja.react.dev/)**  
-   Facebook製のUIライブラリ。コンポーネント単位でUIを設計し、大規模化にも強い。
+   Facebook製のUIライブラリ
 
 2. **[WebRTC API](https://webrtc.org/?hl=ja)**  
-   ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする。
+   ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする
 
 3. **[socket.io-client](https://socket.io/docs/)**  
-   WebSocketをイベント駆動で扱いやすくするライブラリ。自動再接続などが強力。
+   WebSocketをイベント駆動で扱いやすくするライブラリ
 
-### バックエンド
+### SERVER
 
 1. **Node.js + [Fastify](https://fastify.dev/)**  
-   サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク。
+   サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク
 
 2. **[socket.io](https://socket.io/docs/)**  
-   WebSocketでのリアルタイム通信を簡単に実装できるライブラリ。
+   WebSocketでのリアルタイム通信を簡単に実装できるライブラリ
 
-3. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
-   多数のSNS・サービス連携に対応した認証ライブラリ。Twitter認証もシンプルに実装可能。
+4. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
+   多数のSNS・サービス連携に対応した認証ライブラリ
 
-4. **[Coturn](https://github.com/coturn/coturn)**  
-   WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ。t2.micro程度で十分運用可能。
+5. **[Coturn](https://github.com/coturn/coturn)**  
+   WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ（t2.micro程度で十分運用可能と想定）
+
+### SYNAPTIX
+
+1. **Prisma**
+  ORM: Schema定義よりSQLiteDBをジェネレート
+
+2. **GraphQL**
+  - APIとして機能する
+  - Peer側で保持される暗号化キーに対応するデータが保存される
+  - SchemaModel: Prismaよりジェネレートされる
+  - API-Hooks: Prismaよりジェネレートされる
 
 ---
 
-## セットアップ方法
+## SETUP
 
 1. **リポジトリをクローン**
 
@@ -130,21 +139,59 @@
    cd nodera-tv-monorepo
    ```
 
-2. **Yarn Berry を使って依存関係をインストール**
+2. nodenvのインストール<br />
+   https://github.com/nodenv/nodenv?tab=readme-ov-file#installation
 
    ```bash
-   yarn install
+   # nodenvのインストール後にshellを再起動
+   $ exec $SHELL -l
+
+   # installの確認
+   $ nodenv -v
+   nodenv 1.5.0
    ```
 
-3. **開発用サーバを起動**  
-   Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します。
+4. nodeのインストール
+   ```bash
+   $ nodenv install 20.18.0
+   $ nodenv rehash
+   $ node -v
+   v20.18.0
+   ```
+
+2. **Yarn Berry で Workspaces を構築**
 
    ```bash
-   yarn dev
+   $ sh ./scripts/setup.sh
+
+   # workspacesの確認
+   $ yarn workspaces list
+   ➤ YN0000: .
+   ➤ YN0000: apps/client
+   ➤ YN0000: apps/server
+   ➤ YN0000: apps/sinaptix
+   ➤ YN0000: packages/tests
+   ➤ YN0000: Done in 0s 5ms
    ```
 
-   - フロントエンド: http://localhost:3001 (例)
-   - バックエンド: http://localhost:3000 (例)
+   各 `workspace` は `package.json` に定義済みなので、以下のように `workspace` 毎に操作が行える
+
+   ```json
+   "scripts": {
+    "client": "yarn workspace @noderatv-returns/client",
+    "server": "yarn workspace @noderatv-returns/server",
+    "synaptix": "yarn workspace @noderatv-returns/synaptix",
+    "tests": "yarn workspace @noderatv-returns/tests"
+   }
+   ```
+
+   ```bash
+   # clientだけにpackageをインストールする
+   $ yarn client add -D @types/node
+
+   # serverだけbuildする
+   $ yarn server build
+   ```
 
 4. **ビルド**
 
@@ -152,21 +199,38 @@
    yarn build
    ```
 
-5. **デプロイ**
-   - フロントエンドをVercelにデプロイ
-   - バックエンドをFly.ioや任意の環境に配置
-   - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）など
+5. **開発用サーバを起動**  
+   Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します
+
+   ```bash
+   yarn dev
+   ```
+
+   - Client: http://localhost:3001
+   - Server: http://localhost:3000
+
+6. **ビルドファイルのクリーン**
+
+   ```bash
+   yarn clean
+   ```
+
+7. **デプロイ（仮）**
+   - フロントエンドをVercel（仮）にデプロイ
+   - バックエンドをFly.io（仮）に配置
+   - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）
 
 ---
 
-## ライセンス
+## LICENSE
 
-- TBD (会社やプロジェクト方針に応じて設定)
+- TBD (未定)
 
 ---
 
-## 今後の予定
+## FUTUREPLANS
 
 - 同時接続数のテストと負荷測定
 - Twitter以外のOAuth対応 (Google, GitHub等)
 - UIデザイン刷新
+- etc... [Issues](https://github.com/vvvvise/return-of-noderatv/issues)　へ
