@@ -1,22 +1,101 @@
-import React, { useEffect, useRef } from 'react';
-import PeerConnectionManager from './PeerConnectionManager';
+import React, { memo } from 'react';
+import styled from 'styled-components';
+import { useVideoGrid } from './VideoGrid.hooks';
 
-const VideoGrid: React.FC = () => {
-  const localVideoRef = useRef<HTMLVideoElement>(null);
-  const remoteVideoRef = useRef<HTMLVideoElement>(null);
+// ----- styled-components -----
+const Container = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+`;
 
-  useEffect(() => {
-    // 簡易サンプル: PeerConnectionManager側でP2P初期化
-    PeerConnectionManager.init(localVideoRef.current!, remoteVideoRef.current!);
-  }, []);
+const Controls = styled.div`
+  margin-bottom: 8px;
+`;
 
+const OfferButton = styled.button`
+  padding: 8px 16px;
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+`;
+
+const GridContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 8px;
+  max-width: 100%;
+`;
+
+const StyledVideo = styled.video<{ $isLocal?: boolean }>`
+  width: 100%;
+  background-color: ${({ $isLocal }) => ($isLocal ? '#222' : '#333')};
+`;
+
+// ----- VideoElement -----
+interface VideoElementProps {
+  stream: MediaStream;
+  isLocal?: boolean;
+}
+const VideoElement: React.FC<VideoElementProps> = ({ stream, isLocal }) => {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap' }}>
-      <video ref={localVideoRef} autoPlay muted style={{ width: '200px' }} />
-      <video ref={remoteVideoRef} autoPlay style={{ width: '200px' }} />
-      {/* 8x8分割を想定するなら動画要素を動的に増やす or フレックスで拡張 */}
-    </div>
+    <StyledVideo
+      autoPlay
+      muted={!!isLocal}
+      ref={(videoEl) => {
+        if (videoEl && !isLocal) {
+          videoEl.srcObject = stream;
+        }
+      }}
+      $isLocal={isLocal}
+    />
   );
 };
+
+interface VideoGridProps {
+  className?: string;
+}
+
+const VideoGrid: React.FC<VideoGridProps> = memo(({ className }) => {
+  const {
+    remoteStreams,
+    localVideoRef,
+    isConnectedRef,
+    handleCreateOffer
+  } = useVideoGrid(); // カスタムフック呼び出し
+
+  return (
+    <Container className={className}>
+      <Controls>
+        <OfferButton
+          onClick={handleCreateOffer}
+          disabled={!isConnectedRef.current}
+        >
+          Create Offer
+        </OfferButton>
+      </Controls>
+
+      <GridContainer>
+        {/* ローカル映像 */}
+        <StyledVideo
+          autoPlay
+          muted
+          $isLocal
+          ref={localVideoRef}
+        />
+
+        {/* リモート映像群 */}
+        {Array.from(remoteStreams.values()).map((stream) => (
+          <VideoElement key={stream.id} stream={stream} />
+        ))}
+      </GridContainer>
+    </Container>
+  );
+});
+
+VideoGrid.displayName = 'VideoGrid';
 
 export default VideoGrid;
