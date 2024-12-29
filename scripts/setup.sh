@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Function for logging with timestamp
 log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⌁APP⌁ $1"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⌁ 📺 ⌁ $1"
 }
 
 # Function for error handling with more detailed output
@@ -38,6 +38,9 @@ setup_yarn() {
 
     log "Setting Yarn version"
     yarn set version stable || return 1
+
+    yarn plugin import interactive-tools || return 1
+    yarn plugin import version || return 1
 
     log "Setting up dependencies"
     yarn unlink &> /dev/null || true  # Suppress output and don't fail if unlink fails
