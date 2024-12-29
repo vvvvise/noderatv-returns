@@ -16,7 +16,7 @@ const PeerConnectionManager = {
   init: async (
     localVideo: HTMLVideoElement,
     remoteVideo: HTMLVideoElement,
-    socket: typeof Socket
+    socket: Socket
   ) => {
     // 1. RTCPeerConnectionの作成
     peerConnection = new RTCPeerConnection({
@@ -103,7 +103,7 @@ const PeerConnectionManager = {
    * 通常は「ルームマスター」的な役割をする側が呼び出す想定
    * @param socket - シグナリング用のSocket(io)
    */
-  createOffer: async (socket: typeof Socket) => {
+  createOffer: async (socket: Socket) => {
     if (!peerConnection) return;
 
     try {

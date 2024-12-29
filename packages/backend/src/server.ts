@@ -27,6 +27,21 @@ async function startServer() {
       io.emit('chatMessage', msg);
     });
 
+    // 受け取ったofferを別のユーザーへ送る
+    socket.on('offer', (offer) => {
+      // NOTE: socket.broadcast.emit('offer', offer); // 全員に送る例
+      // 任意のルームIDなどを用いて特定ユーザーに送るのが望ましい
+      socket.to('someRoom').emit('offer', offer);
+    });
+
+    socket.on('answer', (answer) => {
+      socket.to('someRoom').emit('answer', answer);
+    });
+
+    socket.on('candidate', (candidate) => {
+      socket.to('someRoom').emit('candidate', candidate);
+    });
+
     socket.on('disconnect', () => {
       console.log('user disconnected:', socket.id);
     });
