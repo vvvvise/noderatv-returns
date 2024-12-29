@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Function for logging with timestamp
 log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⌁APP⌁ $1"
+    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⌁📺⌁ $1"
 }
 
 # Function for error handling with more detailed output
