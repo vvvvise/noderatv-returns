@@ -74,19 +74,50 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 ```
 .
-├─ packages
-│   ├─ frontend
-│   │   ├─ src
-│   │   ├─ package.json
-│   │   └─ ...
-│   └─ backend
-│       ├─ src
-│       ├─ package.json
-│       └─ ...
-├─ .gitignore
-├─ package.json
-├─ turbo.json
-└─ README.md
+├── README.md
+├── package.json
+├── packages/
+│   ├── backend/
+│   │   ├── package.json
+│   │   ├── src/
+│   │   │   ├── config/
+│   │   │   │   └── passport.ts
+│   │   │   ├── controllers/
+│   │   │   │   ├── authController.ts
+│   │   │   │   ├── chatController.ts
+│   │   │   │   └── signalController.ts
+│   │   │   ├── routes/
+│   │   │   │   ├── auth.ts
+│   │   │   │   ├── chat.ts
+│   │   │   │   └── signal.ts
+│   │   │   └── server.ts
+│   │   └── tsconfig.json
+│   └── frontend/
+│       ├── index.html
+│       ├── package.json
+│       ├── src/
+│       │   ├── App.tsx
+│       │   ├── components/
+│       │   │   ├── ChatBox.hooks.test.ts
+│       │   │   ├── ChatBox.hooks.ts
+│       │   │   ├── ChatBox.stories.tsx
+│       │   │   ├── ChatBox.tsx
+│       │   │   ├── VideoGrid.hooks.test.ts
+│       │   │   ├── VideoGrid.hooks.ts
+│       │   │   ├── VideoGrid.stories.tsx
+│       │   │   └── VideoGrid.tsx
+│       │   ├── constants/
+│       │   ├── main.tsx
+│       │   ├── modules/
+│       │   │   └── PeerConnectionManager.ts
+│       │   └── types/
+│       ├── tsconfig.json
+│       └── vite.config.ts
+├── scripts/
+│   └── setup.sh
+├── tsconfig.json
+├── turbo.json
+└── yarn.lock
 ```
 
 ---
