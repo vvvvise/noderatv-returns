@@ -1,4 +1,4 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, StoryFn } from '@storybook/react';
 import React from 'react';
 import VideoGrid from './VideoGrid';
 
@@ -7,7 +7,7 @@ export default {
   component: VideoGrid,
 } as Meta;
 
-const Template: Story = (args) => <VideoGrid {...args} />;
+const Template: StoryFn = (args) => <VideoGrid {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
