@@ -1,53 +1,90 @@
-import React, { useEffect, useState } from 'react';
-import io, { Socket } from 'socket.io-client';
+import React, { ChangeEvent, KeyboardEvent } from 'react';
+import styled from 'styled-components';
+import { useChatBox } from './ChatBox.hooks';
 
-let socket: typeof Socket;
+const ChatBoxContainer = styled.div`
+  border: 1px solid #ccc;
+  height: 100vh;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+`;
 
-const ChatBox: React.FC = () => {
-  const [messages, setMessages] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState('');
+const Title = styled.h3`
+  margin: 0 0 8px;
+`;
 
-  useEffect(() => {
-    socket = io('http://localhost:3000'); // backend側のWSポートに接続
-    socket.on('connect', () => {
-      console.log('Connected to chat server');
-    });
+const MessagesContainer = styled.div`
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 8px;
+`;
 
-    socket.on('chatMessage', (msg: string) => {
-      setMessages((prev) => [...prev, msg]);
-    });
+const InputArea = styled.div`
+  display: flex;
+  gap: 4px;
+`;
 
-    return () => {
-      socket.disconnect();
-    };
-  }, []);
+const ChatInput = styled.input`
+  flex: 1;
+  padding: 4px;
+  border: 1px solid #ccc;
+`;
 
-  const sendMessage = () => {
-    if (inputValue.trim() !== '') {
-      socket.emit('chatMessage', inputValue);
-      setInputValue('');
+const SendButton = styled.button`
+  flex-shrink: 0;
+  padding: 4px 8px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #efefef;
+  }
+`;
+
+/**
+ * ChatBoxコンポーネント
+ * - ロジックは useChatBox() フックに任せて、
+ *   ここではUI表示とユーザー入力に注力
+ */
+export const ChatBox: React.FC = () => {
+  const {
+    messages,
+    inputValue,
+    handleInputChange,
+    handleSendMessage,
+  } = useChatBox();
+
+  // 入力変更ハンドラ
+  const onChangeInput = (e: ChangeEvent<HTMLInputElement>) => {
+    handleInputChange(e.target.value);
+  };
+
+  // Enterキー押下時にメッセージ送信
+  const onKeyDownInput = (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleSendMessage();
     }
   };
 
   return (
-    <div style={{ border: '1px solid #ccc', height: '100vh', padding: 8 }}>
-      <h3>ChatBox</h3>
-      <div style={{ overflowY: 'auto', height: '80%' }}>
+    <ChatBoxContainer>
+      <Title>ChatBox</Title>
+
+      <MessagesContainer>
         {messages.map((m, i) => (
           <div key={i}>{m}</div>
         ))}
-      </div>
-      <div>
-        <input
+      </MessagesContainer>
+
+      <InputArea>
+        <ChatInput
           value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          onKeyDown={(e) => {
-            if (e.key === 'Enter') sendMessage();
-          }}
+          onChange={onChangeInput}
+          onKeyDown={onKeyDownInput}
         />
-        <button onClick={sendMessage}>Send</button>
-      </div>
-    </div>
+        <SendButton onClick={handleSendMessage}>Send</SendButton>
+      </InputArea>
+    </ChatBoxContainer>
   );
 };
 

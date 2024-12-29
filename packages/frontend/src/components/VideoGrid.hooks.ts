@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import PeerConnectionManager from './PeerConnectionManager';
+import { io, Socket } from 'socket.io-client';
+import PeerConnectionManager from '../modules/PeerConnectionManager';
 
 const WEBSOCKET_URL = process.env.REACT_APP_WEBSOCKET_URL || '';
 const MAX_VIDEOS = 16;
@@ -9,8 +10,8 @@ interface RemoteStreamCallback {
 }
 
 export function useVideoGrid() {
-  const [remoteStreams, setRemoteStreams] = useState<Map<string, MediaStream>>(new Map());
-  const socketRef = useRef<WebSocket | null>(null);
+  const [remoteStreams, setRemoteStreams] = useState<Map<string, MediaStream>>(new Map<string, MediaStream>());
+  const socketRef = useRef<Socket | null>(null);
   const isConnectedRef = useRef(false);
 
   // ローカル映像をセットするためのref（UI側がアクセスする）
@@ -30,19 +31,20 @@ export function useVideoGrid() {
 
   // WebSocket接続＆PeerConnection初期化
   useEffect(() => {
-    const ws = new WebSocket(WEBSOCKET_URL);
+    const ws = io(WEBSOCKET_URL);
+    const onRemoteStream = onRemoteStreamAdded as unknown as HTMLVideoElement;
     socketRef.current = ws;
 
-    ws.onopen = () => {
+    ws.on('connect', () => {
       isConnectedRef.current = true;
       if (localVideoRef.current) {
-        PeerConnectionManager.init(ws, localVideoRef.current, onRemoteStreamAdded);
+        PeerConnectionManager.init(localVideoRef.current, onRemoteStream, ws);
       }
-    };
+    });
 
-    ws.onclose = () => {
+    ws.on('disconnect', () => {
       isConnectedRef.current = false;
-    };
+    });
 
     // Cleanup
     return () => {
@@ -62,8 +64,9 @@ export function useVideoGrid() {
       console.error('Cannot create offer: not connected');
       return;
     }
+
     try {
-      PeerConnectionManager.createOffer(socketRef.current);
+      PeerConnectionManager.createOffer(socketRef.current as unknown as Socket);
     } catch (error) {
       console.error('Error creating offer:', error);
     }
