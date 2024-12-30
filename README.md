@@ -92,7 +92,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 ## TECH-STACKS
 
-### FRONTEND
+### CLIENT
 
 1. **[React.js](https://ja.react.dev/)**  
    Facebook製のUIライブラリ
@@ -103,7 +103,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 3. **[socket.io-client](https://socket.io/docs/)**  
    WebSocketをイベント駆動で扱いやすくするライブラリ
 
-### BACKEND
+### SERVER
 
 1. **Node.js + [Fastify](https://fastify.dev/)**  
    サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク
@@ -116,6 +116,17 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 5. **[Coturn](https://github.com/coturn/coturn)**  
    WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ（t2.micro程度で十分運用可能と想定）
+
+### SYNAPTIX
+
+1. **Prisma**
+  ORM: Schema定義よりSQLiteDBをジェネレート
+
+2. **GraphQL**
+  - APIとして機能する
+  - Peer側で保持される暗号化キーに対応するデータが保存される
+  - SchemaModel: Prismaよりジェネレートされる
+  - API-Hooks: Prismaよりジェネレートされる
 
 ---
 
@@ -182,24 +193,29 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    $ yarn server build
    ```
 
-4. **開発用サーバを起動**  
+4. **ビルド**
+
+   ```bash
+   yarn build
+   ```
+
+5. **開発用サーバを起動**  
    Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します
 
    ```bash
    yarn dev
    ```
 
-   - `.env` 導入してないのでとりあえず
-   - フロントエンド: http://localhost:3001
-   - バックエンド: http://localhost:3000
+   - Client: http://localhost:3001
+   - Server: http://localhost:3000
 
-5. **ビルド**
+6. **ビルドファイルのクリーン**
 
    ```bash
-   yarn build
+   yarn clean
    ```
 
-6. **デプロイ（仮）**
+7. **デプロイ（仮）**
    - フロントエンドをVercel（仮）にデプロイ
    - バックエンドをFly.io（仮）に配置
    - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）
