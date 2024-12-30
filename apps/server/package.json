@@ -1,5 +1,5 @@
 {
-  "name": "@return-of-noderatv/backend",
+  "name": "@noderatv-returns/server",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -37,7 +37,7 @@
     "jest": "^29.7.0",
     "lint-staged": "^15.3.0",
     "prettier": "^3.4.2",
-    "rimraf": "^5.0.10",
+    "rimraf": "^6.0.1",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
