@@ -184,9 +184,37 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
    ```bash
    $ sh ./scripts/setup.sh
+
+   # workspacesの確認
+   $ yarn workspaces list
+   ➤ YN0000: .
+   ➤ YN0000: apps/client
+   ➤ YN0000: apps/server
+   ➤ YN0000: apps/sinaptix
+   ➤ YN0000: packages/tests
+   ➤ YN0000: Done in 0s 5ms
    ```
 
-3. **開発用サーバを起動**  
+   各 `workspace` は `package.json` に定義済みなので、以下のように `workspace` 毎に操作が行える
+
+   ```json
+   "scripts": {
+    "client": "yarn workspace @noderatv-returns/client",
+    "server": "yarn workspace @noderatv-returns/server",
+    "synaptix": "yarn workspace @noderatv-returns/synaptix",
+    "tests": "yarn workspace @noderatv-returns/tests"
+   }
+   ```
+
+   ```bash
+   # clientだけにpackageをインストールする
+   $ yarn client add -D @types/node
+
+   # serverだけbuildする
+   $ yarn server build
+   ```
+
+4. **開発用サーバを起動**  
    Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します
 
    ```bash
@@ -197,13 +225,13 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    - フロントエンド: http://localhost:3001
    - バックエンド: http://localhost:3000
 
-4. **ビルド**
+5. **ビルド**
 
    ```bash
    yarn build
    ```
 
-5. **デプロイ（仮）**
+6. **デプロイ（仮）**
    - フロントエンドをVercel（仮）にデプロイ
    - バックエンドをFly.io（仮）に配置
    - TURNサーバ(Coturn)はAWS EC2で運用（t2.micro）
