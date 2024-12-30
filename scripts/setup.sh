@@ -63,7 +63,6 @@ main() {
     # Setup yarn and handle potential errors
     setup_yarn || {
         log "Failed to setup yarn environment"
-        exit 1
     }
 
     log "Finished: Setup Workspaces 🧊"
@@ -71,14 +70,14 @@ main() {
     # Run tree command with error handling
     if ! tree -L 3; then
         log "Failed to display directory structure"
-        exit 1
     fi
 
-		# recover package.json
-		if ! git checkout package.json; then
-			log "Failed to recover package.json"
-			exit 1
-		fi
+    # recover package.json
+    if ! git checkout package.json; then
+        log "Failed to recover package.json"
+        log "Please Fix package.json: $ git checkout package.json"
+        exit 1
+    fi
 
     echo
 }
