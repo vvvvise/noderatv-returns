@@ -1,7 +1,7 @@
 ### 　
 ### 　
 
-# 📺<br />_**N O D E R A .T V** ⌁ R e t u r n s ⌁_
+# 　_⚡️_<br />📺<br />_**N O D E R A .T V** ⌁ R e t u r n s ⌁_
 
 > This is a tribute project that seeks to recreate the historic service NODERA.TV with a technology stack from the late 2020s.
 
