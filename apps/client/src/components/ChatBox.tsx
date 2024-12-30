@@ -4,7 +4,7 @@ import { useChatBox } from '../hooks/ChatBox.hooks';
 
 const ChatBoxContainer = styled.div`
   border: 1px solid #ccc;
-  height: 100vh;
+  height: calc(100vh - 32px);
   padding: 8px;
   display: flex;
   flex-direction: column;
@@ -16,11 +16,12 @@ const Title = styled.h3`
 
 const MessagesContainer = styled.div`
   flex: 1;
-  overflow-y: auto;
+  height: calc(100% - 32px - 8px - 16px);
   margin-bottom: 8px;
 `;
 
 const InputArea = styled.div`
+  height: 32px;
   display: flex;
   gap: 4px;
 `;
@@ -79,6 +80,8 @@ export const ChatBox: React.FC = () => {
       <InputArea>
         <ChatInput
           value={inputValue}
+          type="text"
+          name="chat-input"
           onChange={onChangeInput}
           onKeyDown={onKeyDownInput}
         />

@@ -1,5 +1,5 @@
 {
-  "name": "@return-of-noderatv/frontend",
+  "name": "@noderatv-returns/client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,11 +12,10 @@
     "test-storybook": "test-storybook --url http://localhost:6006",
     "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"yarn build-storybook --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:6006 && yarn test-storybook\"",
     "build-storybook": "storybook build",
-    "setup": "yarn setup:example",
-    "setup:example": "cross-env BUILD_ENV=\"dev\" cp .env.example .env",
-    "setup:development": "cross-env BUILD_ENV=\"dev\" cp .env.development .env",
-    "setup:staging": "cross-env BUILD_ENV=\"local\" cp .env.staging .env",
-    "setup:production": "cross-env BUILD_ENV=\"production\" cp .env.production .env"
+    "setup": "yarn setup:development",
+    "setup:development": "cross-env BUILD_ENV=\"dev\" cp dotenv.development .env",
+    "setup:staging": "cross-env BUILD_ENV=\"local\" cp dotenv.staging .env",
+    "setup:production": "cross-env BUILD_ENV=\"production\" cp dotenv.production .env"
   },
   "dependencies": {
     "react": "^18.3.1",
@@ -26,7 +25,7 @@
     "styled-components": "^6.1.13"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^3",
+    "@chromatic-com/storybook": "^3.2.3",
     "@storybook/addon-coverage": "^1.0.5",
     "@storybook/addon-essentials": "^8.4.7",
     "@storybook/addon-interactions": "^8.4.7",
@@ -37,7 +36,7 @@
     "@storybook/react-vite": "^8.4.7",
     "@storybook/test": "^8.4.7",
     "@storybook/test-runner": "^0.21.0",
-    "@testing-library/react": "^8.0.1",
+    "@testing-library/react": "^8.0.9",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/react": "^18.3.18",
     "@types/react-dom": "^18.3.5",

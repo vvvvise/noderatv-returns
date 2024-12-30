@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { io, Socket } from 'socket.io-client';
 
 const SOCKET_URL = import.meta.env.VITE_APP_SOCKET_URL || 'http://localhost:3000';
@@ -18,45 +18,43 @@ export interface UseChatBoxReturn {
  */
 export function useChatBox(): UseChatBoxReturn {
   const [messages, setMessages] = useState<string[]>([]);
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState<string>('');
 
   // Socketはコンポーネント外でもいいが、ここでは例として関数スコープ内で管理
-  let socket: Socket;
+  const socketRef = useRef<Socket | null>(null);
 
   useEffect(() => {
     // サーバに接続
-    socket = io(SOCKET_URL);
+    socketRef.current = io(SOCKET_URL);
 
-    socket.on('connect', () => {
+    socketRef.current.on('connect', () => {
       console.log('Connected to chat server');
     });
 
     // 'chatMessage'イベント受信 → messagesに追加
-    socket.on('chatMessage', (msg: string) => {
+    socketRef.current.on('chatMessage', (msg: string) => {
       setMessages((prev) => [...prev, msg]);
     });
 
     // cleanup
     return () => {
       console.log('Disconnecting socket...');
-      socket.disconnect();
+      socketRef.current?.disconnect();
     };
   }, []);
 
   // テキスト入力変更時
   const handleInputChange = useCallback((value: string) => {
     setInputValue(value);
-  }, []);
+  }, [setInputValue]);
 
   // メッセージ送信
   const handleSendMessage = useCallback(() => {
     if (inputValue.trim() !== '') {
-      // 現状、socket をフック内部で使うために「既にconnect済み」を仮定
-      // 本来は guardチェックやRef化などを検討
-      socket.emit('chatMessage', inputValue);
-      setInputValue('');
+      socketRef.current?.emit('chatMessage', inputValue);
+      setInputValue(inputValue);
     }
-  }, [inputValue]);
+  }, [inputValue, setInputValue]);
 
   return {
     messages,
