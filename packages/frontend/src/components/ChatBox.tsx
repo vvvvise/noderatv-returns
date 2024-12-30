@@ -1,6 +1,6 @@
 import React, { ChangeEvent, KeyboardEvent } from 'react';
 import styled from 'styled-components';
-import { useChatBox } from './ChatBox.hooks';
+import { useChatBox } from '../hooks/ChatBox.hooks';
 
 const ChatBoxContainer = styled.div`
   border: 1px solid #ccc;
