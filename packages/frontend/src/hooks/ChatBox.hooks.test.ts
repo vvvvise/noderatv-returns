@@ -1,4 +1,5 @@
-import { act, renderHook } from '@testing-library/react-hooks';
+import { act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
 import { useChatBox } from './ChatBox.hooks';
 
 // Socket.io のモック (簡易例)

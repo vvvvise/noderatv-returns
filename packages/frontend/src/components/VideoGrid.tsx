@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { useVideoGrid } from './VideoGrid.hooks';
+import { useVideoGrid } from '../hooks/VideoGrid.hooks';
 
 // ----- styled-components -----
 const Container = styled.div`
