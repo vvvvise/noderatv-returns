@@ -5,7 +5,7 @@ set -euo pipefail
 
 # Function for logging with timestamp
 log() {
-    echo "[$(date '+%Y-%m-%d %H:%M:%S')] ⌁ 📺 ⌁ $1"
+    echo "⌁ 📺 ⌁ [$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
 # Function for error handling with more detailed output
@@ -39,16 +39,23 @@ setup_yarn() {
     log "Setting Yarn version"
     yarn set version stable || return 1
 
-    yarn plugin import interactive-tools || return 1
-    yarn plugin import version || return 1
+    yarn plugin import interactive-tools
+    yarn plugin import version
+
+    # recover package.json
+    if ! git checkout package.json; then
+        log "Failed to recover package.json"
+        log "Please Fix package.json: $ git checkout package.json"
+        exit 1
+    fi
 
     log "Setting up dependencies"
     yarn unlink &> /dev/null || true  # Suppress output and don't fail if unlink fails
-    yarn link && yarn install || return 1
+    yarn install || return 1
 }
 
 main() {
-    log "Running: Setup Workspaces 🚰"
+    log "Running: Setup Workspaces ⌁ 🧊"
 
     # Check requirements first
     check_requirements
@@ -63,21 +70,21 @@ main() {
     # Setup yarn and handle potential errors
     setup_yarn || {
         log "Failed to setup yarn environment"
+        exit 1
     }
-
-    log "Finished: Setup Workspaces 🧊"
 
     # Run tree command with error handling
     if ! tree -L 3; then
         log "Failed to display directory structure"
     fi
 
-    # recover package.json
-    if ! git checkout package.json; then
-        log "Failed to recover package.json"
-        log "Please Fix package.json: $ git checkout package.json"
+    # build
+    yarn build || {
+        log "Failed to build"
         exit 1
-    fi
+    }
+
+    log "Finished: Setup Workspaces ⌁ ⚡️"
 
     echo
 }
