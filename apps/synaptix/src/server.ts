@@ -1,6 +1,6 @@
-// @ts-ignore
-import ApolloServer from "apollo-server";
-// @ts-ignore
+// @ts-expect-error - ApolloServer is not typed
+import { ApolloServer } from "apollo-server";
+// @ts-expect-error - gql is not typed
 import gql from "gql";
 
 
@@ -20,7 +20,8 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
 });
-// @ts-ignore
+
+// Start the server
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });

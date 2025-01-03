@@ -19,7 +19,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 ## OUTLINE
 
-構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。  
+構成としては、 **turborepo + Yarn Berry** を使ったモノレポ構成となっています。
 フロントエンドとバックエンドをワークスペースPackageとして開発し、低コスト運用で最大16名までのP2Pライブ配信を実現する想定です。
 
 - **4x4分割で最大16コマのライブストリーム**をP2Pで配信
@@ -78,7 +78,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 ├── apps/
 │   ├── client/
 │   ├── server/
-│   └── sinaptix/
+│   └── synaptix/
 ├── package.json
 ├── packages/
 │   └── tests/
@@ -94,27 +94,27 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
 
 ### CLIENT
 
-1. **[React.js](https://ja.react.dev/)**  
+1. **[React.js](https://ja.react.dev/)**
    Facebook製のUIライブラリ
 
-2. **[WebRTC API](https://webrtc.org/?hl=ja)**  
+2. **[WebRTC API](https://webrtc.org/?hl=ja)**
    ブラウザ間のP2P通信を可能にし、低遅延で映像・音声をやり取りする
 
-3. **[socket.io-client](https://socket.io/docs/)**  
+3. **[socket.io-client](https://socket.io/docs/)**
    WebSocketをイベント駆動で扱いやすくするライブラリ
 
 ### SERVER
 
-1. **Node.js + [Fastify](https://fastify.dev/)**  
+1. **Node.js + [Fastify](https://fastify.dev/)**
    サーバサイドJavaScript環境。Fastifyは軽量＆高速なHTTPサーバフレームワーク
 
-2. **[socket.io](https://socket.io/docs/)**  
+2. **[socket.io](https://socket.io/docs/)**
    WebSocketでのリアルタイム通信を簡単に実装できるライブラリ
 
-4. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**  
+4. **[Passport.js](https://www.passportjs.org/) (Twitter OAuth 2.0)**
    多数のSNS・サービス連携に対応した認証ライブラリ
 
-5. **[Coturn](https://github.com/coturn/coturn)**  
+5. **[Coturn](https://github.com/coturn/coturn)**
    WebRTCでNAT越えを行う際に必要なTURN/STUNサーバ（t2.micro程度で十分運用可能と想定）
 
 ### SYNAPTIX
@@ -169,7 +169,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    ➤ YN0000: .
    ➤ YN0000: apps/client
    ➤ YN0000: apps/server
-   ➤ YN0000: apps/sinaptix
+   ➤ YN0000: apps/synaptix
    ➤ YN0000: packages/tests
    ➤ YN0000: Done in 0s 5ms
    ```
@@ -199,7 +199,7 @@ _**"そもそも可能性だけの世界だったインターネット"**_ を�
    yarn build
    ```
 
-5. **開発用サーバを起動**  
+5. **開発用サーバを起動**
    Turborepoの `dev` タスクにより、フロント/バックエンドが同時起動します
 
    ```bash
