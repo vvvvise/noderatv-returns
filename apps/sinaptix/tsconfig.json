@@ -3,7 +3,9 @@
   "compilerOptions": {
     "paths": {
       "@repo/*": ["./*"]
-    }
+    },
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true
   },
   "include": ["prisma/**/*.ts", "src/**/*.ts"],
   "files": ["prisma/generated/**/*.ts", "src/**/*.ts"],

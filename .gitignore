@@ -46,3 +46,6 @@ doctor-storybook.log
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+/apps/sinaptix/prisma/generated/
+/apps/sinaptix/generator-build/
