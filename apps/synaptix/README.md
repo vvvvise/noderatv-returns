@@ -1,4 +1,4 @@
-# @noderatv-returns/sinaptix
+# @noderatv-returns/synaptix
 
 ## Usage
 ```sh

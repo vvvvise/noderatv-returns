@@ -1,7 +1,7 @@
-// @ts-ignore
-import { buildSchemaSync } from "type-graphql/build/esm/utils"
-// @ts-ignore
-import * as generatorBuild from "@prisma/client/generator-build"
+// @ts-expect-error - type-graphql is not typed
+import { buildSchemaSync } from "type-graphql/build/esm/utils";
+// @ts-expect-error - @prisma/client is not typed
+import * as generatorBuild from "@prisma/client/generator-build";
 
 export const schema = buildSchemaSync({
   "resolvers": [

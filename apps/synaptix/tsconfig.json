@@ -1,0 +1,28 @@
+{
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "paths": {
+      "@repo/*": [
+        "./*"
+      ]
+    },
+    "lib": [
+      "ES2015",
+      "DOM"
+    ]
+  },
+  "include": [
+    "prisma/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "files": [
+    "prisma/generated/**/*.ts",
+    "src/**/*.ts"
+  ],
+  "ts-node": {
+    "esm": true,
+    "experimentalSpecifierResolution": "node"
+  }
+}
